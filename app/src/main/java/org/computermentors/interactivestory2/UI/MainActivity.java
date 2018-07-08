@@ -1,11 +1,14 @@
-package org.computermentors.interactivestory2;
+package org.computermentors.interactivestory2.UI;
 
+import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import org.computermentors.interactivestory2.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,8 +27,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String name = nameField.getText().toString();
-                Toast.makeText(MainActivity.this, name, Toast.LENGTH_LONG).show();
+                startStory(name);
             }
         });
+    }
+
+    private void startStory(String name) {
+        Intent intent = new Intent(this, StoryActivity.class);
+        Resources resources = getResources();
+        String key = resources.getString(R.string.key_name);
+        intent.putExtra(key, name);
+        startActivity(intent);
+
     }
 }
