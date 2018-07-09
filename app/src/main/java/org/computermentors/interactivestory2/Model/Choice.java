@@ -1,15 +1,20 @@
 package org.computermentors.interactivestory2.Model;
 
 public class Choice {
-    private int imageId;
+    private int nextPage;
     private int textId;
 
-    public int getImageId() {
-        return imageId;
+    public Choice(int textId, int nextPage) {
+        this.nextPage = nextPage;
+        this.textId = textId;
     }
 
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
+    public int getNextPage() {
+        return nextPage;
+    }
+
+    public void setNextPage(int nextPage) {
+        this.nextPage = nextPage;
     }
 
     public int getTextId() {
